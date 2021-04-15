@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "aa",
+  "version": "${version}",
+  "name": "Aa",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/Aa/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "unt.unt.client.AaClient"
+    ],
+    "main": [
+      "unt.unt.Aa"
+    ]
+  },
+  "mixins": [
+    "unt.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.10.2+build.210",
+    "fabric": "*",
+    "minecraft": "1.16.5"
+  }
+}
