@@ -4,9 +4,11 @@ import com.google.common.collect.Maps;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.minecraft.client.item.ModelPredicateProvider;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
+import unt.unt.Aa;
 
 import java.lang.reflect.Field;
 import java.util.Map;
@@ -30,6 +32,6 @@ public class AaClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-
+        ScreenRegistry.register(Aa.sh, ms::new);
     }
 }

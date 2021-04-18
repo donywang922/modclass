@@ -2,23 +2,19 @@ package unt.unt;
 
 
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.LootableContainerBlockEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.screen.Generic3x3ContainerScreenHandler;
-import net.minecraft.screen.GenericContainerScreenHandler;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.collection.DefaultedList;
 
 public class mbe extends LootableContainerBlockEntity {
-    public DefaultedList<ItemStack> list = DefaultedList.ofSize(9,ItemStack.EMPTY);
+    public DefaultedList<ItemStack> list = DefaultedList.ofSize(12,ItemStack.EMPTY);
 
     public mbe() {
         super(Aa.mbet);
@@ -39,13 +35,13 @@ public class mbe extends LootableContainerBlockEntity {
             }
 
         } else {//如果玩家拿了东西
-            for (int num=0;num<9;num++){
+            for (int num=0;num<12;num++){
                 if (list.get(num).getItem() == item.getItem()) {
                     list.get(num).increment(item.getCount());
                     item.decrement(item.getCount());
                 }
             }
-            for (int num=0;num<9;num++){
+            for (int num=0;num<12;num++){
                 if (list.get(num).isEmpty()) {
                     list.set(num, item.copy());
                     item.decrement(item.getCount());
@@ -77,7 +73,7 @@ public class mbe extends LootableContainerBlockEntity {
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
 
 //        return new GenericContainerScreenHandler(ScreenHandlerType.GENERIC_9X1,syncId,playerInventory,this,1);
-        return new Generic3x3ContainerScreenHandler(syncId,playerInventory,this);
+        return new sh(syncId,playerInventory,this);
     }
 
     protected DefaultedList<ItemStack> getInvStackList() {
@@ -90,6 +86,6 @@ public class mbe extends LootableContainerBlockEntity {
 
     @Override
     public int size() {
-        return 9;
+        return 12;
     }
 }
